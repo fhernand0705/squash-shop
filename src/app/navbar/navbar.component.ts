@@ -12,4 +12,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  dropMenu() {
+    let btn = document.getElementById('dropdown');
+    btn.classList.toggle('show');
+  }
+
 }
