@@ -1,0 +1,9 @@
+.navbar-items {
+  display: grid;
+  grid-template-columns: 4em 7em 6em;
+  list-style: none;
+  margin: 1em;
+   a {
+    text-decoration: none;
+  }
+}
