@@ -4,12 +4,16 @@
 // }
 
 .navbar-items {
-  display: grid;
-  grid-template-columns: 10em 5em 7.5em 3em 7em;
+  display: flex;
+  flex-direction: row;
   list-style: none;
   margin: 1em;
    a {
     text-decoration: none;
+    flex: .15;
+  }
+  li {
+    padding-left: 1em;
   }
 }
 
@@ -20,8 +24,6 @@
 
 .dropdown-btn {
   cursor: pointer;
-  border: none;
-  outline: none;
 }
 
 .dropdown-content {
