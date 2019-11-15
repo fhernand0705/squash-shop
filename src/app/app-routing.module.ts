@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'check-out', component: CheckOutComponent },
   { path: 'order-success', component: OrderSuccessComponent },
   { path: 'my-orders', component: MyOrdersComponent },
-  { path: 'admin-products', component: AdminProductsComponent },
-  { path: 'admin-orders', component: AdminOrdersComponent },
+  { path: 'admin/products', component: AdminProductsComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent },
   { path: 'login', component: LoginComponent }
 ];
 
