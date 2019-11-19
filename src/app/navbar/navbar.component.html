@@ -9,14 +9,16 @@
     <li
       ngbDropdown
       class="dropdown-wrapper"
-      *ngIf="authService.user$ | async as user; else anonymousUser">
+      *ngIf="appUser; else anonymousUser">
       <a ngbDropdownToggle class="dropdown-btn">
-        {{ user.displayName }}
+        {{ appUser.name }}
       </a>
       <div ngbDropdownMenu class="dropdown-content">
         <li><a routerLink="/my-orders">My Orders</a></li>
-        <li><a routerLink="/admin/orders">Manage Orders</a></li>
-        <li><a routerLink="/admin/products">Manage Products</a></li>
+        <ng-container *ngIf="appUser.isAdmin">
+          <li><a routerLink="/admin/orders">Manage Orders</a></li>
+          <li><a routerLink="/admin/products">Manage Products</a></li>
+        </ng-container>
         <li><a (click)="logout()">Logout</a></li>
       </div>
     </li>
