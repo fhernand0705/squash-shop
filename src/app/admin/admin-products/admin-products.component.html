@@ -1,1 +1,26 @@
-<a routerLink="/admin/products/new">New Product</a>
+<div>
+  <a routerLink="/admin/products/new">New Product</a>
+</div>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products$ | async">
+        <td>{{ p.payload.val().brand }}</td>
+        <td>{{ p.payload.val().item }}</td>
+        <td>{{ p.payload.val().price | currency:'USD':true }}</td>
+        <td>{{ p.payload.val().category | titlecase }}</td>
+        <td><a [routerLink]="['/admin/products', p.key]">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
