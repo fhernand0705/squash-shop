@@ -1,3 +1,4 @@
+<div class="admin-products-wrapper">
 <p>
   <a routerLink="/admin/products/new">New Product</a>
 </p>
@@ -12,7 +13,18 @@
 <data-table
   [items]="items"
   [itemCount]="itemCount"
-  (reload)="reloadItems($event)">
+  (reload)="reloadItems($event)"
+  class="product-table">
+
+  <data-table-column
+    [property]="'imageUrl'"
+    [resizable]="true">
+
+    <ng-template #dataTableCell let-item="item">
+      <img [src]="item.imageUrl" alt="">
+    </ng-template>
+
+  </data-table-column>
 
   <data-table-column
     [property]="'brand'"
@@ -51,3 +63,5 @@
   </data-table-column>
 
 </data-table>
+
+</div>

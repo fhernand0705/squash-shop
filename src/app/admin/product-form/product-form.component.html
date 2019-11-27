@@ -72,8 +72,9 @@
     </form>
   </div>
 
-  <div class="col"></div>
-  <div class="card-wrapper">
+  <div class="col-1"></div>
+
+  <div *ngIf="product.brand || product.imageUrl" class="card-wrapper">
     <img [src]="product.imageUrl" alt="Item Image" style="width:100%">
     <div class="container">
       <h4><b>{{ product.brand }}</b></h4>
