@@ -9,25 +9,45 @@
     class="form-control" type="text" placeholder="Search Product...">
 </p>
 
-<div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Brand</th>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of filteredProducts">
-        <td>{{ p.brand }}</td>
-        <td>{{ p.item }}</td>
-        <td>{{ p.price | currency:'USD':'symbol' }}</td>
-        <td>{{ p.category | titlecase }}</td>
-        <td><a [routerLink]="['/admin/products', p.key]">Edit</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<data-table
+  [items]="items"
+  [itemCount]="itemCount"
+  (reload)="reloadItems($event)">
+
+  <data-table-column
+    [property]="'brand'"
+    [header]="'Brand'"
+    [sortable]="true"
+    [resizable]="true">
+
+  </data-table-column>
+
+  <data-table-column
+    [property]="'item'"
+    [header]="'Item'"
+    [sortable]="true"
+    [resizable]="true">
+
+  </data-table-column>
+
+  <data-table-column
+    [property]="'price'"
+    [header]="'Price'"
+    [sortable]="true"
+    [resizable]="true">
+
+    <ng-template #dataTableCell let-item="item">
+      {{ item.price | currency:'USD':'symbol' }}
+    </ng-template>
+
+  </data-table-column>
+
+  <data-table-column [property]="'key'">
+
+    <ng-template #dataTableCell let-item="item">
+      <a [routerLink]="['/admin/products', item.key]">Edit</a>
+    </ng-template>
+
+  </data-table-column>
+
+</data-table>
