@@ -6,14 +6,11 @@
   border-radius: .5em;
   width: 13em;
   margin: 4em 1em;
-    a.active {
-      background-color: navy;
-    }
 }
 
 .product-card-wrapper {
   display: grid;
-  grid-template-columns: 18em 18em;
+  grid-template-columns: 10em 10em;
   grid-row-gap: 5em;
   margin: 5em;
   justify-content: space-evenly;

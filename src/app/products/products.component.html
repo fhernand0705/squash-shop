@@ -1,21 +1,6 @@
 <section class="categories-wrapper">
   <div class="category-items">
-    <div class="list-group">
-      <a
-        class="list-group-item list-group-item-action"
-        [class.active]="!category"
-        routerLink="/products">
-        All Categories
-      </a>
-      <a
-        *ngFor="let c of categories$ | async"
-        class="list-group-item list-group-item-action"
-        [class.active]="category === c.key"
-        routerLink="/products"
-        [queryParams]="{ category: c.key}">
-        {{ c.payload.val().name }}
-      </a>
-    </div>
+    <product-filter [category]="category"></product-filter>
   </div>
 </section>
 
