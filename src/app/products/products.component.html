@@ -1,16 +1,34 @@
-<div>
-  <table>
-    <tr>
-      <th>Brand</th>
-      <th>Item</th>
-      <th>Price</th>
-      <th>Category</th>
-    </tr>
-    <tr *ngFor="let p of products$ | async">
-      <td>{{ p.payload.val().brand }}</td>
-      <td>{{ p.payload.val().item }}</td>
-      <td>{{ p.payload.val().price | currency:'USD':true }}</td>
-      <td>{{ p.payload.val().category }}</td>
-    </tr>
-  </table>
-</div>
+<section class="categories-wrapper">
+  <div class="category-items">
+    <div class="list-group">
+      <a
+        class="list-group-item list-group-item-action"
+        [class.active]="!category"
+        routerLink="/products">
+        All Categories
+      </a>
+      <a
+        *ngFor="let c of categories$ | async"
+        class="list-group-item list-group-item-action"
+        [class.active]="category === c.key"
+        routerLink="/products"
+        [queryParams]="{ category: c.key}">
+        {{ c.payload.val().name }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="product-card-wrapper">
+
+    <div *ngFor="let p of filteredProducts" class="product-card-items">
+      <img [src]="p.imageUrl" alt="Item Image">
+      <div class="container">
+        <h4><b>{{ p.brand }}</b></h4>
+        <p>{{ p.item }}</p>
+        <p>{{ p.price | currency:'USD':'symbol' }}</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+</section>

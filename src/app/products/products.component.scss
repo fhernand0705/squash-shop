@@ -1,0 +1,33 @@
+.categories-wrapper {
+  display: grid;
+  position: absolute;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: .5em;
+  width: 13em;
+  margin: 4em 1em;
+    a.active {
+      background-color: navy;
+    }
+}
+
+.product-card-wrapper {
+  display: grid;
+  grid-template-columns: 18em 18em;
+  grid-row-gap: 5em;
+  margin: 5em;
+  justify-content: space-evenly;
+}
+
+.product-card-items {
+  width: 18em;
+  background-color: navy;
+  color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: .5em;
+    img {
+      width: 18em;
+      border-radius: 5px 5px 0 0;
+    }
+}
