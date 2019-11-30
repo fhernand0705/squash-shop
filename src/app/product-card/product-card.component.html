@@ -1,0 +1,12 @@
+
+  <div class="product-card-item" *ngIf="product.brand || product.imageUrl">
+    <img [src]="product.imageUrl" alt="{{ product.item }}">
+    <div class="container">
+      <h4><b>{{ product.brand }}</b></h4>
+      <p>{{ product.item }}</p>
+      <p>{{ product.price | currency:'USD':'symbol' }}</p>
+    </div>
+    <div class="card-footer">
+      <button *ngIf="showAction" class="btn-block">Add to Cart</button>  
+    </div>
+  </div>

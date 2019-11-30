@@ -1,5 +1,5 @@
 <div class="product-form-container">
-  <div class="form-wrapper">
+  <div class="product-form-item">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">
         <label for="brand">Brand Name</label>
@@ -72,14 +72,9 @@
     </form>
   </div>
 
-  <div class="col-1"></div>
+  <div class="col"></div>
 
-  <div *ngIf="product.brand || product.imageUrl" class="card-wrapper">
-    <img [src]="product.imageUrl" alt="Item Image" style="width:100%">
-    <div class="container">
-      <h4><b>{{ product.brand }}</b></h4>
-      <p>{{ product.item }}</p>
-      <p>{{ product.price | currency:'USD':'symbol' }}</p>
-    </div>
+  <div class="card-wrapper">
+    <product-card [product]="product" [show-action]="false"></product-card>
   </div>
 </div>

@@ -1,19 +1,9 @@
-<section class="categories-wrapper">
+<section class="category-wrapper sticky-top">
   <div class="category-items">
     <product-filter [category]="category"></product-filter>
   </div>
 </section>
 
 <section class="product-card-wrapper">
-
-    <div *ngFor="let p of filteredProducts" class="product-card-items">
-      <img [src]="p.imageUrl" alt="Item Image">
-      <div class="container">
-        <h4><b>{{ p.brand }}</b></h4>
-        <p>{{ p.item }}</p>
-        <p>{{ p.price | currency:'USD':'symbol' }}</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-
+  <product-card [product]="product" *ngFor="let product of filteredProducts"></product-card>
 </section>

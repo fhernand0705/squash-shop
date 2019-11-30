@@ -1,0 +1,21 @@
+.product-card-item {
+  width: 20em;
+  background-color: navy;
+  color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: .5em;
+    img {
+      width: 20em;
+      border-radius: 5px 5px 0 0;
+    }
+}
+
+.card-footer {
+  padding: 0;
+    .btn-block {
+      border-bottom-left-radius: .5em;
+      border-bottom-right-radius: .5em;
+      padding: .5em; 
+    }
+}
