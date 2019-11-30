@@ -7,6 +7,11 @@
       <p>{{ product.price | currency:'USD':'symbol' }}</p>
     </div>
     <div class="card-footer">
-      <button *ngIf="showAction" class="btn-block">Add to Cart</button>  
+      <button
+        *ngIf="showAction"
+        (click)="addToCart(product)"
+        class="btn-block">
+        Add to Cart
+      </button>
     </div>
   </div>
