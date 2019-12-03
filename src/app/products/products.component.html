@@ -5,5 +5,9 @@
 </section>
 
 <section class="product-card-wrapper">
-  <product-card [product]="product" *ngFor="let product of filteredProducts"></product-card>
+  <product-card
+    [product]="product"
+    *ngFor="let product of filteredProducts"
+    [shopping-cart]="cart">
+  </product-card>
 </section>
