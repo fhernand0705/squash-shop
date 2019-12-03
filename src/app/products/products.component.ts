@@ -32,7 +32,6 @@ export class ProductsComponent {
             this.products.filter(p => p.category === this.category) :
             this.products;
         })
-
   }
 
 }
