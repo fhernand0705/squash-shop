@@ -4,8 +4,8 @@
     <li>
       <a routerLink="/shopping-cart">
         Shopping Cart
-        <span class="badge badge-warning badge-pill">
-          {{ shoppingCartItemCount }}
+        <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+          {{ cart.itemsTotalCount }}
         </span>
       </a>
     </li>
