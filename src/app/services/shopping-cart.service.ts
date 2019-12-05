@@ -24,7 +24,7 @@ export class ShoppingCartService {
     return this.db.object('/shopping-carts/' + cartId)
       .valueChanges()
       .pipe(
-        map((cart: ShoppingCart) => new ShoppingCart(cart.items))
+        map((cart: { items }) => new ShoppingCart(cart.items))
       );
   }
 
