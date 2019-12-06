@@ -4,7 +4,7 @@
   </div>
 </section>
 
-<section class="product-card-wrapper">
+<section class="product-card-wrapper" *ngIf="cart$ | async as cart">
   <product-card
     [product]="product"
     *ngFor="let product of filteredProducts"
