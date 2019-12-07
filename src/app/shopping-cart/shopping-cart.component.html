@@ -42,10 +42,21 @@
             {{ cart.totalPrice | currency:"USD":symbol }}
           </th>
         </tr>
+        <tr>
+          <td class="text-left">
+            <button
+            (click)="clearCart()"
+            class="btn btn-light btn-sm">Clear Shopping Cart</button>
+          </td>
+          <td></td>
+          <td></td>
+          <td class="text-right">
+            <a
+              routerLink="/check-out"
+              class="btn btn-primary btn-sm">Check Out</a>
+          </td>
+        </tr>
       </tfoot>
     </table>
-    <button
-      (click)="clearCart()"
-      class="btn btn-danger btn-sm">Clear Shopping Cart</button>
     </div>
 </div>
