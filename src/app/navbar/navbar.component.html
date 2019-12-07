@@ -3,7 +3,7 @@
     <a class="primary-logo" routerLink="/">Squash Shop</a>
     <li>
       <a routerLink="/shopping-cart">
-        Shopping Cart
+        <i class="fab fa-opencart"></i>
         <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
           {{ cart.itemsTotalCount }}
         </span>
