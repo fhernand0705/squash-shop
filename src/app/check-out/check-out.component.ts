@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from '../models/shopping-cart.model';
 import { OrderService } from '../services/order.service';
-import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
+import { Order } from '../models/order.model';
 
 @Component({
   selector: 'app-check-out',
@@ -20,7 +20,7 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
 
   constructor(
-    private route: Router,
+    private router: Router,
     private authService: AuthService,
     private orderService: OrderService,
     private cartService: ShoppingCartService) { }
@@ -37,26 +37,10 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe();
   }
 
-  placeOrder() {
-    let order = {
-      userId: this.userId,
-      datePlaced: new Date().getTime(),
-      shipping: this.shipping,
-      items: this.cart.items.map(i => {
-        return {
-          product: {
-            title: i.item,
-            brand: i.brand,
-            imageUrl: i.imageUrl,
-            price: i.price
-          },
-          quantity: i.quantity,
-          totalPrice: i.totalPrice
-        }
-      })
-    };
-    this.orderService.saveOrder(order);
+  async placeOrder() {
+    let order = new Order(this.userId, this.shipping, this.cart);
+    let userOrder = await this.orderService.placeOrder(order);
 
-    this.route.navigate(['/order-success']);
+    this.router.navigate(['/order-success', userOrder.key]);
   }
 }
