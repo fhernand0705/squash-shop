@@ -17,7 +17,7 @@
         Address 1 is required.
       </div>
     </div>
-    <input #address2="ngModel" [(ngModel)]="shipping.address2" name="address2" id="address" type="text" class="form-control" placeholder="address 2" required>
+    <input #address2="ngModel" [(ngModel)]="shipping.address2" name="address2" id="address" type="text" class="form-control" placeholder="address 2">
   </div>
 
   <div class="form-group">
@@ -30,6 +30,9 @@
     </div>
   </div>
 
-  <button class="btn btn-primary" (click)="placeOrder()">Place Order</button>
+  <button
+    [disabled]="!f.valid"
+    class="btn btn-primary"
+    (click)="placeOrder()">Place Order</button>
 
 </form>

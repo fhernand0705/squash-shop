@@ -23,15 +23,15 @@ export class ProductService {
     )
   }
 
-  getProduct(productId) {
+  getProduct(productId: string) {
     return this.db.object<Product>('/products/' + productId);
   }
 
-  update(productId, product) {
+  update(productId: string, product) {
     return this.db.object('/products/' + productId).update(product);
   }
 
-  delete(productId) {
+  delete(productId: string) {
     return this.db.object('/products/' + productId).remove();
   }
 }
