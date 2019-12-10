@@ -1,0 +1,9 @@
+.check-out-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 3em;
+}
+
+.shipping-form-container { flex: 1.5; }
+.col { flex: .5; }
+.cart-summary-container { flex: 1; }

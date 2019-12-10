@@ -1,1 +1,22 @@
-<p>admin-orders works!</p>
+<!-- <ul class="list-group" *ngIf="orders$ | async as orders">
+  <li class="list-group-item" *ngFor="let o of orders">
+    {{ o.shipping.name }}
+  </li>
+</ul> -->
+
+<div class="admin-orders-wrapper" *ngIf="orders$ | async as orders">
+  <table class="table admin-orders-table">
+    <tbody>
+      <tr>
+        <th>Customer Name</th>
+        <th>Order Placed</th>
+        <th>Order Details</th>
+      </tr>
+      <tr *ngFor="let o of orders">
+        <td>{{ o.shipping.name }}</td>
+        <td>{{ o.datePlaced | date }}</td>
+        <td><a href="">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
