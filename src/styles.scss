@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~font-awesome/css/font-awesome.css";
 
-.form-control:focus { border-color: yellow !important; }
+$primary-color: navy;
+$sec-color: yellow;
+
+.form-control:focus { border-color: $sec-color !important; }
+.btn-primary { background-color: $primary-color !important; }

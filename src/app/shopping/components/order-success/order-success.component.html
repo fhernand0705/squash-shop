@@ -1,1 +1,6 @@
-<p>order-success works!</p>
+<div *ngIf="orders$ | async as order">
+  <h2>Thank you for your order!</h2>
+
+  <p *ngFor="let o of order">Here's your order confirmation number: {{ o.datePlaced }}</p>
+  <button routerLink="/" class="btn btn-primary">Continue Shopping</button>
+</div>
