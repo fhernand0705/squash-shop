@@ -3,14 +3,12 @@
   margin: 2em;
 }
 
-.product-form-item {
-  flex: 5;
-}
+.product-form-item { flex: 5; }
+.col { flex: 1.5; }
+.card-wrapper { flex: 4; }
+.delete-btn { color: red; }
 
-.col {
-  flex: 1.5;
-}
-
-.card-wrapper {
-  flex: 4;
+.save-btn {
+  background-color: navy;
+  margin: 0 .5em 0 0;
 }

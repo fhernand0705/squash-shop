@@ -1,5 +1,5 @@
 <div class="product-form-container">
-  
+
   <div class="product-form-item">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">
@@ -68,8 +68,13 @@
         </div>
       </div>
 
-      <button class="save-btn">Save</button>
-      <button type="button" class="delete-btn" (click)="delete()">Delete</button>
+      <div class="btn-wrapper">
+        <button class="save-btn btn btn-primary">Save</button>
+        <button
+        type="button"
+        class="delete-btn btn alert-danger"
+        (click)="delete()">Delete</button>
+      </div>
     </form>
   </div>
 

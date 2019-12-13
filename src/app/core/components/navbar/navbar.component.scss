@@ -1,3 +1,8 @@
+.navbar-container {
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+  padding-bottom: .25em;
+}
+
 .navbar-items {
   display: flex;
   flex-direction: row;
@@ -30,12 +35,12 @@
 }
 
 .dropdown-wrapper {
-  flex: .22; 
+  flex: .22;
   a {
     color: navy;
     font-weight: bold;
   }
-  a:hover { color: rgba(16, 8, 171, 0.85); }
+  a:hover { color: rgba(4, 26, 173, 0.99); }
 }
 
 .dropdown-content {
