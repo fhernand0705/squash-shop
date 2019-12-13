@@ -1,7 +1,9 @@
 <div class="navbar-container">
   <ul class="navbar-items">
-    <a class="primary-logo" routerLink="/">Squash Shop</a>
-    <li>
+    <a routerLink="/">
+      <i class="fas fa-spinner"></i>
+    </a>
+    <li class="cart-logo">
       <a routerLink="/shopping-cart">
         <i class="fab fa-opencart"></i>
         <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
