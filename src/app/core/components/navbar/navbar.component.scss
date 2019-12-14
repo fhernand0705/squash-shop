@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 .navbar-container {
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
   padding-bottom: .25em;
@@ -14,16 +16,21 @@
   }
   .fab {
     font-size: 1.5em;
-    color: navy;
+    color: $primary-color;
   }
   .fas {
     font-size: 3.5em;
     width: 1.5em;
-    color: navy;
+    color: $primary-color;
   }
 }
 
-.cart-logo { flex: 1; }
+.cart-logo { flex: .5; }
+.badge { background-color: $beige; }
+.squash-logo-text {
+  flex-grow: .5;
+  color: $primary-color;
+}
 
 .badge {
   position: relative;
@@ -35,13 +42,17 @@
 }
 
 .dropdown-wrapper {
-  flex: .22;
+  flex: .2;
   a {
-    color: navy;
+    color: $primary-color;
     font-weight: bold;
   }
   a:hover { color: rgba(4, 26, 173, 0.99); }
 }
+
+.login-btn { flex: .08; }
+.btn { transition: all .4s ease-in-out; }
+.btn:hover { color: $sky-blue !important; }
 
 .dropdown-content {
   border-radius: .5em;
@@ -54,8 +65,8 @@
       font-size: 1em;
     }
     a {
-      color: gray;
+      color: $gray;
       font-weight: 400;
     }
-    a:hover { color: navy; }
+    a:hover { color: $primary-color; }
 }

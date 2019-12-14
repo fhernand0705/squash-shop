@@ -1,5 +1,13 @@
 <div class="admin-orders-wrapper" *ngIf="orders$ | async as orders">
-  <table class="table admin-orders-table">
+
+  <ng-template #showMsg>
+    <div class="no-orders-msg">
+      <h2>there are currently no orders in your shop</h2>
+      <button routerLink="/" class="btn btn-primary">Shop Now</button>
+    </div>
+  </ng-template>
+
+  <table class="table admin-orders-table" *ngIf="orders.length > 0; else showMsg">
     <tbody>
       <tr>
         <th>Customer Name</th>

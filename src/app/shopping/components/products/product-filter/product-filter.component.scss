@@ -1,5 +1,8 @@
+@import "src/styles.scss";
+
 .list-group {
   a.active {
-    background-color: navy;
+    background-color: $primary-color;
+    border-color: $primary-color;
   }
 }

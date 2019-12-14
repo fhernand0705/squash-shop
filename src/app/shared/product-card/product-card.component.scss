@@ -1,7 +1,9 @@
+@import "src/styles.scss";
+
 .product-card-item {
   width: 20em;
-  background-color: navy;
-  color: whitesmoke;
+  background-color: $primary-color;
+  color: $white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: .5em;
@@ -15,6 +17,8 @@
   padding: 0;
     .btn-block {
       cursor: pointer;
+      background-color: $gray;
+      border-color: $gray;
       border-bottom-left-radius: .5em;
       border-bottom-right-radius: .5em;
       padding: .5em;
