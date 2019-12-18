@@ -11,12 +11,14 @@ import { LoginComponent } from './core/components/login/login.component';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { AdminAuthGuardService } from './admin/services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/components/product-form/product-form.component';
+import { RegisterComponent } from './core/components/register/register.component';
 
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
   { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService] },
   { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService] },

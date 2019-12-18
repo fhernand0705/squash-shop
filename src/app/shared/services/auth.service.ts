@@ -41,4 +41,20 @@ export class AuthService {
       })
   )}
 
+  registerUser(value) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(String(value.email), String(value.password))
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+    })
+
+    // let user = firebase.auth().currentUser;
+    //
+    // user.updateProfile({
+    //   displayName: value.name
+    // }).then(res => console.log(res))
+    //   .catch(error => console.log(error))
+  }
+
 }
