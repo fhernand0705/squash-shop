@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { AppUser } from 'src/app/shared/models/app-user';
+import { User } from '../models/user.model';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ import { AppUser } from 'src/app/shared/models/app-user';
 })
 export class AuthService {
   user$: Observable<firebase.User>;
+  regUser$: User;
 
   constructor(
     private userService: UserService,
@@ -23,8 +25,7 @@ export class AuthService {
   }
 
   login() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl', returnUrl);
+    this.currentUrl();
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
   }
 
@@ -41,20 +42,35 @@ export class AuthService {
       })
   )}
 
-  registerUser(value) {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(String(value.email), String(value.password))
-        .then(res => {
-          resolve(res);
-        }, err => reject(err))
-    })
+  registerUser(value: User) {
+    this.currentUrl();
 
-    // let user = firebase.auth().currentUser;
-    //
-    // user.updateProfile({
-    //   displayName: value.name
-    // }).then(res => console.log(res))
-    //   .catch(error => console.log(error))
+    var user = null;
+  //nullify empty arguments
+  for (var i = 0; i < arguments.length; i++) {
+    arguments[i] = arguments[i] ? arguments[i] : null;
+  }
+
+    return new Promise((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(
+        String(value.email), String(value.password)
+      ).then(() => {
+        user = firebase.auth().currentUser;
+        resolve(user.updateProfile({
+          displayName: value.name
+        }))
+      }, err => reject(err))
+    })
+  }
+
+  getUser(user: firebase.User) {
+    if (user != null)
+    return firebase.auth().currentUser;
+  }
+
+  private currentUrl() {
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
   }
 
 }
