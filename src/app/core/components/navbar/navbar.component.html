@@ -20,10 +20,9 @@
     <li
       ngbDropdown
       class="dropdown-wrapper"
-      *ngIf="appUser || user; else anonymousUser">
+      *ngIf="appUser; else anonymousUser">
       <a ngbDropdownToggle class="dropdown-btn">
-        {{ appUser.name }}
-        {{ user.displayName }}
+        {{ appUser.name | titlecase }}
       </a>
       <div ngbDropdownMenu class="dropdown-content">
         <li><a routerLink="/my-orders">My Orders</a></li>

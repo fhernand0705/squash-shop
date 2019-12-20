@@ -5,6 +5,7 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
 import { Observable } from 'rxjs';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart.model';
 import { User } from 'src/app/shared/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -13,7 +14,6 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class NavbarComponent implements OnInit {
   appUser: AppUser;
-  user;
   cart$: Observable<ShoppingCart>;
 
   constructor(
@@ -23,8 +23,6 @@ export class NavbarComponent implements OnInit {
 
   async ngOnInit() {
     this.authService.appUser$.subscribe(appUser => this.appUser = appUser);
-    this.user = await this.authService.getUser(this.user);
-
     this.cart$ = await this.cartService.getCart();
   }
 

@@ -14,7 +14,6 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
   user$: Observable<firebase.User>;
-  regUser$: User;
 
   constructor(
     private userService: UserService,
@@ -24,9 +23,9 @@ export class AuthService {
     this.user$ = afAuth.authState;
   }
 
-  login() {
-    this.currentUrl();
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+  loginGoogle() {
+    this.returnToUrl();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
@@ -42,35 +41,42 @@ export class AuthService {
       })
   )}
 
-  registerUser(value: User) {
-    this.currentUrl();
-
-    var user = null;
-  //nullify empty arguments
-  for (var i = 0; i < arguments.length; i++) {
-    arguments[i] = arguments[i] ? arguments[i] : null;
-  }
+  registerUser(value: AppUser) {
+    this.returnToUrl();
 
     return new Promise((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(
+      this.afAuth.auth.createUserWithEmailAndPassword(
         String(value.email), String(value.password)
-      ).then(() => {
-        user = firebase.auth().currentUser;
-        resolve(user.updateProfile({
-          displayName: value.name
+      ).then(user => {
+        resolve(firebase.auth().onAuthStateChanged(user => {
+          if (user)
+            user.updateProfile({
+              displayName: value.name
+            })
         }))
-      }, err => reject(err))
+        }, err => reject(err))
     })
   }
 
-  getUser(user: firebase.User) {
-    if (user != null)
-    return firebase.auth().currentUser;
+  loginUser(user: AppUser) {
+    this.returnToUrl();
+
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(
+        String(user.email), String(user.password)
+      ).then(user => {
+        resolve(firebase.auth().onAuthStateChanged(user => {
+          if (user) return user;
+        }))
+      }, err => {
+        reject(err);
+        console.log(err);
+      })
+    })
   }
 
-  private currentUrl() {
+  private returnToUrl() {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
   }
-
 }

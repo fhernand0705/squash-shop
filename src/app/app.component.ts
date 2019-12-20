@@ -18,10 +18,16 @@ export class AppComponent {
       if (!user) return;
         userService.saveUser(user);
 
-      let returnUrl = localStorage.getItem('returnUrl');
-      if (!returnUrl) return;
-        localStorage.removeItem('returnUrl')
-        router.navigateByUrl(returnUrl);
+      this.returnToUrl();
     })
+
+    //authService.updateUserName(value);
+  }
+
+  private returnToUrl() {
+    let returnUrl = localStorage.getItem('returnUrl');
+    if (!returnUrl) return;
+      localStorage.removeItem('returnUrl')
+      this.router.navigateByUrl(returnUrl);
   }
 }

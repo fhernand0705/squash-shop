@@ -1,12 +1,25 @@
+@import "src/styles.scss";
+
 .login-wrapper {
   display: flex;
-  margin: 8em;
+  margin: 3.5em;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
-    h3 { margin: 1em; }
-    .login-btn { transition: all .4s ease-in-out; }
-    .login-btn:hover {
+    a {
+      color: $primary-color;
+      transition: all .3s ease-in-out;
+    }
+    a:hover {
+      text-decoration: none;
+      color: $sky-blue;
+    }
+    form { width: 30%; }
+    .login-btn { width: 100% }
+    .login-google-btn { width: 30%; }
+    .login-btn, .login-google-btn { transition: all .3s ease-in-out; }
+    .login-btn:hover, .login-google-btn:hover {
       box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
       color: #4fbbc7;
     }
