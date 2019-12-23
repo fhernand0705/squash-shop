@@ -1,4 +1,4 @@
-<div *ngIf="orders$ | async as order">
+<div class="order-success-wrapper" *ngIf="orders$ | async as order">
   <h2>Thank you for your order!</h2>
 
   <p *ngFor="let o of order">Here's your order confirmation number: {{ o.datePlaced }}</p>

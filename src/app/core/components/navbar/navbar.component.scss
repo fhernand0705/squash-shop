@@ -42,7 +42,7 @@
 }
 
 .dropdown-wrapper {
-  flex: .2;
+  flex: .25;
   a {
     color: $primary-color;
     font-weight: bold;
@@ -65,7 +65,7 @@
       font-size: 1em;
     }
     a {
-      color: $gray;
+      color: darkgray;
       font-weight: 400;
     }
     a:hover { color: $primary-color; }

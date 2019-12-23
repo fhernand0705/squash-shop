@@ -21,6 +21,6 @@
     .login-btn, .login-google-btn { transition: all .3s ease-in-out; }
     .login-btn:hover, .login-google-btn:hover {
       box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
-      color: #4fbbc7;
+      color: $sky-blue;
     }
 }
