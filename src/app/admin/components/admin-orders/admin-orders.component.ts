@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { Observable } from 'rxjs';
 
@@ -7,14 +7,11 @@ import { Observable } from 'rxjs';
   templateUrl: './admin-orders.component.html',
   styleUrls: ['./admin-orders.component.scss']
 })
-export class AdminOrdersComponent implements OnInit {
+export class AdminOrdersComponent {
   orders$;
 
   constructor(private orderService: OrderService) {
     this.orders$ = this.orderService.getOrders();
-  }
-
-  ngOnInit() {
   }
 
 }

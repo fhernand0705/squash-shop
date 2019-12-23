@@ -19,3 +19,8 @@ $beige: #f7d49a;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
   color: $sky-blue !important;
 }
+
+.back-btn-wrapper {
+  margin: 1em;
+  a { color: $primary-color; }
+}

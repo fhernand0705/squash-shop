@@ -1,0 +1,13 @@
+@import 'src/styles.scss';
+
+.date {
+  color: $sky-blue;
+  margin: 1.5em;
+}
+
+.card-text {
+  img {
+    border-radius: 100%;
+    width: 10em;
+  }
+}

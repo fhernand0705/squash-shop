@@ -17,8 +17,6 @@ export class MyOrdersComponent {
   ) {
     this.orders$ = this.authService.user$
       .pipe(switchMap(u => orderService.getOrdersByUser(u.uid))
-
-    );
-      console.log(this.orders$.userId); 
+    ); 
   }
 }

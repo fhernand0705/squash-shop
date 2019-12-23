@@ -15,9 +15,9 @@
         <th>Order Details</th>
       </tr>
       <tr *ngFor="let o of orders">
-        <td>{{ o.shipping.name }}</td>
+        <td>{{ o.shipping.name | titlecase }}</td>
         <td>{{ o.datePlaced | date }}</td>
-        <td><a href="">View</a></td>
+        <td><a [routerLink]="['/admin/orders/order-details', o.userId]">View</a></td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,11 @@
-<div class="product-form-container">
+<div class="back-btn-wrapper">
+  <a routerLink="/admin/products">
+    <i class="fas fa-chevron-left"></i>
+    Back
+  </a>
+</div>
 
+<div class="product-form-container">
   <div class="product-form-item">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">

@@ -1,0 +1,27 @@
+<div *ngIf="adminOrders$ | async as orders">
+  <div class="back-btn-wrapper">
+    <a routerLink="/my-orders">
+      <i class="fas fa-chevron-left"></i>
+      Back
+    </a>
+  </div>
+
+  <div class="card" *ngFor="let o of orders">
+    <h6 class="card-text date">{{ o.datePlaced | date: 'medium'}}</h6>
+    <div class="card-header"><h4>Customer Details</h4></div>
+    <div class="card-body">
+      <p class="card-text"><b>Shipping Name</b>: {{ o.shipping.name | titlecase }}</p>
+      <p class="card-text"><b>Address 1</b>: {{ o.shipping.address1 | titlecase }}</p>
+      <p class="card-text"><b>City</b>: {{ o.shipping.city | uppercase }}</p>
+    </div>
+
+    <div class="card-header"><h4>Order Details</h4></div>
+    <div class="card-body">
+      <p class="card-text"><b>Product Brand</b>: {{ o.items[0].product.brand }}</p>
+      <p class="card-text"><b>Item Name</b>: {{ o.items[0].product.title }}</p>
+      <p class="card-text"><b>Quantity</b>: {{ o.items[0].quantity }}</p>
+      <p class="card-text"><b>Total Price</b>: {{ o.items[0].totalPrice | currency:'USD':symbol }}</p>
+      <div class="card-text"><img class="card-text" [src]="o.items[0].product.imageUrl" alt=""></div>
+    </div>
+ </div>
+</div>

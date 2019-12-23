@@ -22,6 +22,8 @@ export class AdminProductsComponent implements OnDestroy  {
         this.products = products
         this.initializeTable(products);
       });
+
+      console.log()
   }
 
   private initializeTable(products: Product[]) {
@@ -36,12 +38,12 @@ export class AdminProductsComponent implements OnDestroy  {
     if (!this.tableResource) return;
 
     this.tableResource.query(params)
-      .then(items => this.items = items);
+      .then(items => this.items = items)        
   }
 
   filter(query: string) {
     let filteredProducts = (query) ?
-      this.products.filter(p => p.brand.toLowerCase().includes(query.toLowerCase())) :
+      this.products.filter(p => p.category.toLowerCase().includes(query.toLowerCase())) :
       this.products;
 
     this.initializeTable(filteredProducts);

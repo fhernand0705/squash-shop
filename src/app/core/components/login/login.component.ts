@@ -35,7 +35,7 @@ export class LoginComponent  {
     this.authService.loginUser(user)
     .then(res => {
       this.successMsg = "You have successfully logged!"
-      // this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }, err => {
       console.log(err);
       this.errorMsg = err.message;

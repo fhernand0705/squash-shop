@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { AppUser } from 'src/app/shared/models/app-user';
-import { User } from '../models/user.model';
 
 
 @Injectable({

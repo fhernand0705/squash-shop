@@ -4,8 +4,6 @@ import { AppUser } from 'src/app/shared/models/app-user';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart.model';
-import { User } from 'src/app/shared/models/user.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
