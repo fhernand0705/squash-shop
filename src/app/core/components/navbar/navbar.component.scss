@@ -1,6 +1,10 @@
 @import "src/styles.scss";
 
 .navbar-container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-image: linear-gradient(260deg, $sky-blue 0%, $primary-color 100%);
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
   padding-bottom: .25em;
 }
@@ -11,17 +15,15 @@
   list-style: none;
   margin: 1em;
    a { text-decoration: none; }
-  li {
-    padding-left: 1em;
-  }
+  li { padding-left: 1em; }
   .fab {
     font-size: 1.5em;
-    color: $primary-color;
+    color: $sky-blue;
   }
   .fas {
     font-size: 3.5em;
     width: 1.5em;
-    color: $primary-color;
+    color: $sky-blue;
   }
 }
 
@@ -30,6 +32,7 @@
 .squash-logo-text {
   flex-grow: .5;
   color: $primary-color;
+  text-shadow: 2px 2px $sky-blue;
 }
 
 .badge {
@@ -42,17 +45,14 @@
 }
 
 .dropdown-wrapper {
-  flex: .25;
+  flex: .27;
   a {
     color: $primary-color;
     font-weight: bold;
   }
-  a:hover { color: rgba(4, 26, 173, 0.99); }
 }
 
 .login-btn { flex: .08; }
-.btn { transition: all .4s ease-in-out; }
-.btn:hover { color: $sky-blue !important; }
 
 .dropdown-content {
   border-radius: .5em;
@@ -64,9 +64,12 @@
     li {
       font-size: 1em;
     }
-    a {
-      color: darkgray;
-      font-weight: 400;
-    }
+    a { color: darkgray; }
     a:hover { color: $primary-color; }
+
+    .logout-btn {
+      color: #f03f35;
+      cursor: pointer;
+    }
+    .logout-btn:hover { color: red; }
 }

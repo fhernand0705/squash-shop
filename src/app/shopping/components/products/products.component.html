@@ -1,13 +1,15 @@
-<section class="category-wrapper sticky-top">
-  <div class="category-items">
-    <product-filter [category]="category"></product-filter>
-  </div>
-</section>
+<div class="main-wrapper">
+  <section class="category-wrapper sticky-top">
+    <div class="category-items">
+      <product-filter [category]="category"></product-filter>
+    </div>
+  </section>
 
-<section class="product-card-wrapper" *ngIf="cart$ | async as cart">
-  <product-card
-    [product]="product"
-    *ngFor="let product of filteredProducts"
-    [shopping-cart]="cart">
-  </product-card>
-</section>
+  <section class="product-card-wrapper" *ngIf="cart$ | async as cart">
+    <product-card
+      [product]="product"
+      *ngFor="let product of filteredProducts"
+      [shopping-cart]="cart">
+    </product-card>
+  </section>
+</div>

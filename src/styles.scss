@@ -8,6 +8,43 @@ $gray: #bbc2c4;
 $white: #ffffff;
 $beige: #f7d49a;
 
+$nav-font-size: 1.5em; //24px
+$base-font-size: 1em; //16px
+$btn-font-size: .75em; //12px
+$base-line-height: 1.5;
+
+//breakpoints
+$bp-xxsmall: 19.50em; //320px
+$bp-xsmall: 40em; //640px
+$bp-small: 52.50; //840px
+$bp-medium: 71.88em; //1150px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; //1920px
+$bp-xxlarge: 160em; //2560px
+
+//media queries
+$mq-xxsmall: "(min-width: #{$bp-xxsmall})";
+$mq-xsmall: "(min-width: #{$bp-xsmall})";
+$mq-max-xsmall: "(max-width: #{$bp-xsmall})";
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-max-medium: "(max-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+
+body {
+ font-family: 'Work Sans', sans-serif !important;
+ font-weight: 500 !important;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+ font-family: 'Montserrat', sans-serif;
+ font-weight: 500;
+}
+
+.main-wrapper { margin: 8em 2em; }
+
 .form-control:focus { border-color: $sec-color !important; }
 .btn-primary {
   background-color: $primary-color !important;
