@@ -1,9 +1,9 @@
 <div class="navbar-container">
   <ul class="navbar-items">
-    <a routerLink="/">
+    <a routerLink="/" class="app-logo">
       <i class="fas fa-spinner"></i>
     </a>
-    <li class="cart-logo">
+    <li class="cart-navbar-logo">
       <a routerLink="/shopping-cart">
         <i class="fab fa-opencart"></i>
         <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
@@ -11,7 +11,7 @@
         </span>
       </a>
     </li>
-    <li class="squash-logo-text"><h3>Squash Essentials</h3></li>
+    <li class="squash-navbar-header"><h3>Squash Essentials</h3></li>
     <ng-template #anonymousUser>
       <li class="login-btn">
         <a class="btn btn-primary" routerLink="/login">Login</a>
@@ -19,7 +19,7 @@
     </ng-template>
     <li
       ngbDropdown
-      class="dropdown-wrapper"
+      class="dropdown-navbar-wrapper"
       *ngIf="appUser; else anonymousUser">
       <a ngbDropdownToggle class="dropdown-btn">
         {{ appUser.name | titlecase }}
@@ -34,5 +34,49 @@
         <li><a class="logout-btn" (click)="logout()">Logout</a></li>
       </div>
     </li>
+
+    <li id="menu-icon" class="menu-bars">
+      <div (click)="openSidebar()">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+      </div>
+    </li>
   </ul>
+
+  <div id="menu-sidebar" class="menu-sidebar">
+    <a href="javascript:void(0)"
+       class="close-btn"
+       id="closeBtn"
+       (click)="closeSidebar()">
+       &times;
+    </a>
+    <ul class="sidebar-items">
+      <li
+        ngbDropdown
+        class="dropdown-wrapper"
+        *ngIf="appUser; else anonymousUser">
+        <a ngbDropdownToggle class="dropdown-btn">
+          {{ appUser.name | titlecase }}
+        </a>
+        <div ngbDropdownMenu class="dropdown-content">
+          <li><a routerLink="/my-orders">My Orders</a></li>
+          <ng-container *ngIf="appUser.isAdmin">
+            <li><a routerLink="/admin/orders">Manage Orders</a></li>
+            <li><a routerLink="/admin/products">Manage Products</a></li>
+          </ng-container>
+          <hr>
+          <li><a class="logout-btn" (click)="logout()">Logout</a></li>
+        </div>
+      </li>
+      <li class="cart-logo">
+        <a routerLink="/shopping-cart">
+          <i class="fab fa-opencart"></i>
+          <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+            {{ cart.itemsTotalCount }}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -27,4 +27,26 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  openSidebar() {
+    let sidebar = document.getElementById('menu-sidebar');
+    let closeBtn = document.getElementById('closeBtn');
+
+    sidebar.style.width = "16em";
+
+    setTimeout(() => {
+      closeBtn.style.display = "block";
+    }, 600)
+  }
+
+  closeSidebar() {
+    let sidebar = document.getElementById('menu-sidebar');
+    let closeBtn = document.getElementById('closeBtn');
+
+    sidebar.style.width = "0";
+
+    setTimeout(() => {
+      closeBtn.style.display = "none";
+    }, 400)
+  }
 }

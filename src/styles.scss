@@ -27,6 +27,7 @@ $mq-xxsmall: "(min-width: #{$bp-xxsmall})";
 $mq-xsmall: "(min-width: #{$bp-xsmall})";
 $mq-max-xsmall: "(max-width: #{$bp-xsmall})";
 $mq-small: "(min-width: #{$bp-small})";
+$mq-max-small: "(max-width: #{$bp-small})";
 $mq-medium: "(min-width: #{$bp-medium})";
 $mq-max-medium: "(max-width: #{$bp-medium})";
 $mq-large: "(min-width: #{$bp-large})";
@@ -43,7 +44,10 @@ h1, h2, h3, h4, h5, h6, th {
  font-weight: 500;
 }
 
-.main-wrapper { margin: 8em 2em; }
+.main-wrapper {
+  margin: 8em 0;
+  transition: margin-right .5s;
+}
 
 .form-control:focus { border-color: $sec-color !important; }
 .btn-primary {

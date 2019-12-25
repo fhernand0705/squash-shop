@@ -27,9 +27,9 @@
   }
 }
 
-.cart-logo { flex: .5; }
+.cart-navbar-logo { flex: .5; }
 .badge { background-color: $beige; }
-.squash-logo-text {
+.squash-navbar-header {
   flex-grow: .5;
   color: $primary-color;
   text-shadow: 2px 2px $sky-blue;
@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-.dropdown-wrapper {
+.dropdown-navbar-wrapper {
   flex: .27;
   a {
     color: $primary-color;
@@ -72,4 +72,58 @@
       cursor: pointer;
     }
     .logout-btn:hover { color: red; }
+}
+
+.menu-sidebar { display: none; }
+
+@media all and (max-width: 850px) {
+  .dropdown-navbar-wrapper, .cart-navbar-logo { display: none; }
+  .squash-navbar-header {
+    flex: 1;
+    padding: .5em 0 ;
+      h3 { font-size: 1.25em; }
+  }
+  .app-logo { flex: .5; }
+
+  .bar-1, .bar-2, .bar-3 {
+    width: 35px;
+    height: 5px;
+    background-color: $primary-color;
+    margin: 6px 0;
+    border-radius: 1em;
+  }
+
+  .menu-sidebar {
+    display: block;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: $primary-color;
+    padding-top: 2em;
+    transition: .5s ease-in-out;
+
+    .sidebar-items {
+      margin: 2.5em 0;
+      list-style: none;
+      display: block;
+      transition: 0.3s;
+    }
+
+    a { color: $sky-blue; }
+
+    .close-btn {
+      display: none;
+      color: $sky-blue;
+      text-decoration: none;
+      position: absolute;
+      margin: 0;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      transition: all .2s ease-in-out;
+    }
+   }
 }
