@@ -76,22 +76,26 @@
 
 .menu-sidebar { display: none; }
 
-@media all and (max-width: 850px) {
+
+@media #{$mq-max-small} {
+  .app-logo { flex: .5; }
   .dropdown-navbar-wrapper, .cart-navbar-logo { display: none; }
   .squash-navbar-header {
     flex: 1;
     padding: .5em 0 ;
       h3 { font-size: 1.25em; }
   }
-  .app-logo { flex: .5; }
 
   .bar-1, .bar-2, .bar-3 {
-    width: 35px;
     height: 5px;
     background-color: $primary-color;
     margin: 6px 0;
     border-radius: 1em;
   }
+
+  .bar-1 { width: 1em; }
+  .bar-2 { width: 1.5em; }
+  .bar-3 { width: 2em; }
 
   .menu-sidebar {
     display: block;
@@ -107,12 +111,18 @@
 
     .sidebar-items {
       margin: 2.5em 0;
+      padding: 0 1.5em;
       list-style: none;
       display: block;
       transition: 0.3s;
     }
 
-    a { color: $sky-blue; }
+    a {
+      color: $sky-blue;
+      text-decoration: none;
+    }
+    a:hover { color: $gray; }
+    hr { background-color: $sky-blue; }
 
     .close-btn {
       display: none;
@@ -125,5 +135,24 @@
       font-size: 36px;
       transition: all .2s ease-in-out;
     }
-   }
+
+    .user-name {
+      font-size: 1.25em;
+      color: $sky-blue;
+      text-align: center;
+      margin: 1em 0;
+
+        h5 {
+          position: relative;
+          right: 1em;
+        }
+    }
+
+    .logout-btn {
+      color: #f03f35;
+      cursor: pointer;
+    }
+    .logout-btn:hover { color: red; }
+    .badge { left: .5em; }
+  }
 }

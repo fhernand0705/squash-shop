@@ -53,30 +53,27 @@
     </a>
     <ul class="sidebar-items">
       <li
-        ngbDropdown
-        class="dropdown-wrapper"
+        class="user-name"
         *ngIf="appUser; else anonymousUser">
-        <a ngbDropdownToggle class="dropdown-btn">
-          {{ appUser.name | titlecase }}
-        </a>
-        <div ngbDropdownMenu class="dropdown-content">
-          <li><a routerLink="/my-orders">My Orders</a></li>
-          <ng-container *ngIf="appUser.isAdmin">
-            <li><a routerLink="/admin/orders">Manage Orders</a></li>
-            <li><a routerLink="/admin/products">Manage Products</a></li>
-          </ng-container>
-          <hr>
-          <li><a class="logout-btn" (click)="logout()">Logout</a></li>
-        </div>
+        <h5>{{ appUser.name | titlecase }}</h5>
       </li>
       <li class="cart-logo">
         <a routerLink="/shopping-cart">
-          <i class="fab fa-opencart"></i>
+          <span>My Cart</span>
           <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
             {{ cart.itemsTotalCount }}
           </span>
         </a>
       </li>
+      <li><a routerLink="/my-orders">My Orders</a></li>
+      <li *ngIf="appUser">
+        <ng-container *ngIf="appUser.isAdmin">
+          <li><a routerLink="/admin/orders">Manage Orders</a></li>
+          <li><a routerLink="/admin/products">Manage Products</a></li>
+        </ng-container>
+      </li>
+      <hr>
+      <li><a class="logout-btn" (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </div>
