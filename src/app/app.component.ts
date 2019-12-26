@@ -14,14 +14,12 @@ export class AppComponent {
     private router: Router,
     private userService: UserService
   ) {
-    authService.user$.subscribe(user => {
+    this.authService.user$.subscribe(user => {
       if (!user) return;
-        userService.saveUser(user);
+        this.userService.saveUser(user);
 
       this.returnToUrl();
     })
-
-    //authService.updateUserName(value);
   }
 
   private returnToUrl() {

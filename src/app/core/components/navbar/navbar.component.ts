@@ -24,15 +24,20 @@ export class NavbarComponent implements OnInit {
     this.cart$ = await this.cartService.getCart();
   }
 
-  logout() {
-    this.authService.logout();
+  logout() { this.authService.logout(); }
+
+  reload() {
+    let sidebar = document.getElementById('overlay');
+
+    sidebar.style.height = "0";
+    location.reload;
   }
 
   openSidebar() {
-    let sidebar = document.getElementById('menu-sidebar');
+    let sidebar = document.getElementById('overlay');
     let closeBtn = document.getElementById('closeBtn');
 
-    sidebar.style.width = "16em";
+    sidebar.style.height = "100%";
 
     setTimeout(() => {
       closeBtn.style.display = "block";
@@ -40,10 +45,10 @@ export class NavbarComponent implements OnInit {
   }
 
   closeSidebar() {
-    let sidebar = document.getElementById('menu-sidebar');
+    let sidebar = document.getElementById('overlay');
     let closeBtn = document.getElementById('closeBtn');
 
-    sidebar.style.width = "0";
+    sidebar.style.height = "0";
 
     setTimeout(() => {
       closeBtn.style.display = "none";

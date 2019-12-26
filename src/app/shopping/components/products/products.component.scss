@@ -1,19 +1,25 @@
+@import "src/styles.scss";
+
 .category-wrapper {
+  position: absolute;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: .5em;
   width: 13em;
   margin: 4em 1em;
+
+    @media #{$mq-xxsmall} {
+      position: unset;
+      box-shadow: unset;
+      width: unset;
+      margin: 0;
+    }
 }
 
 .sticky-top {
   top: 7em;
 }
 
-.category-items {
-  position: absolute;
-  width: 13em;
-}
 
 .product-card-wrapper {
   display: grid;

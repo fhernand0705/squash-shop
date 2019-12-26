@@ -14,7 +14,7 @@
     <li class="squash-navbar-header"><h3>Squash Essentials</h3></li>
     <ng-template #anonymousUser>
       <li class="login-btn">
-        <a class="btn btn-primary" routerLink="/login">Login</a>
+        <a class="btn btn-primary" (click)="reload()" routerLink="/login">Login</a>
       </li>
     </ng-template>
     <li
@@ -43,37 +43,37 @@
       </div>
     </li>
   </ul>
+</div>
 
-  <div id="menu-sidebar" class="menu-sidebar">
+<div id="overlay" class="menu-overlay">
     <a href="javascript:void(0)"
-       class="close-btn"
-       id="closeBtn"
-       (click)="closeSidebar()">
-       &times;
+      class="close-btn"
+      id="closeBtn"
+      (click)="closeSidebar()">
+      &times;
     </a>
-    <ul class="sidebar-items">
-      <li
+    <div class="overlay-items">
+        <div
         class="user-name"
         *ngIf="appUser; else anonymousUser">
         <h5>{{ appUser.name | titlecase }}</h5>
-      </li>
-      <li class="cart-logo">
-        <a routerLink="/shopping-cart">
+       </div>
+      <div class="cart-logo">
+        <a routerLink="/shopping-cart" (click)="reload()">
           <span>My Cart</span>
           <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
             {{ cart.itemsTotalCount }}
           </span>
         </a>
-      </li>
-      <li><a routerLink="/my-orders">My Orders</a></li>
-      <li *ngIf="appUser">
+      </div>
+      <div><a routerLink="/my-orders" (click)="reload()">My Orders</a></div>
+      <div *ngIf="appUser">
         <ng-container *ngIf="appUser.isAdmin">
-          <li><a routerLink="/admin/orders">Manage Orders</a></li>
-          <li><a routerLink="/admin/products">Manage Products</a></li>
+          <div><a routerLink="/admin/orders" (click)="reload()">Manage Orders</a></div>
+          <div><a routerLink="/admin/products" (click)="reload()">Manage Products</a></div>
         </ng-container>
-      </li>
-      <hr>
-      <li><a class="logout-btn" (click)="logout()">Logout</a></li>
-    </ul>
+        <hr>
+        <div (click)="reload()"><a class="logout-btn" (click)="logout()">Logout</a></div>
+      </div>
+    </div>
   </div>
-</div>
