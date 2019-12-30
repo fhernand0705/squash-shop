@@ -7,17 +7,13 @@
   }
   a:hover { background-color: lightgray; }
 
-  @media #{$mq-xxsmall} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 2em;
+  @media #{$mq-xxsmall} and (max-width: 1000px) {
+    flex-direction: column;
+    width: 100%;
     font-size: 1em;
     text-align: center;
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.2);
 
-      .list-group-item, a {
-        flex: 1;
-        z-index: -1;
-      }
+      .list-group-item { width: 20em; }
   }
 }

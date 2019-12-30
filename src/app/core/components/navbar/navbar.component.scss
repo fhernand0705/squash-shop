@@ -3,6 +3,7 @@
 .navbar-container {
   position: fixed;
   width: 100%;
+  z-index: 10;
   top: 0;
   background-image: linear-gradient(260deg, $sky-blue 0%, $primary-color 100%);
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
@@ -23,40 +24,51 @@
     color: $sky-blue;
   }
 
+  @media #{ $mq-xxsmall } {
+    padding: 0;
+  }
+}
+
+
+
+
+.app-logo {
+  flex: .5;
+
+  @media #{$mq-max-small} { flex: 1; }
+
   .fas {
     font-size: 3.5em;
     width: 1.5em;
     color: $sky-blue;
-  }
 
-  @media #{ $mq-xxsmall } {
-    padding: 0;
-      .fas { font-size: 2.5em }
+    @media #{ $mq-xxsmall } and (max-width: 40em) {
+      font-size: 2.5em;
+    }
   }
-}
-
-.app-logo {
-  @media #{$mq-max-small} { flex: .5; }
 }
 
 .cart-navbar-logo {
-  flex: .5;
+  flex: 2;
   @media #{$mq-max-small} { display: none; }
 }
 
-.badge { background-color: $beige; }
 .squash-navbar-header {
-  flex-grow: .5;
+  display: block;
+  flex: 3;
   color: $primary-color;
   text-shadow: 2px 2px $sky-blue;
 
-  @media #{ $mq-xxsmall } {
-    display: none;
+  @media #{$mq-max-xsmall} { display: none; }
+
+  @media #{$mq-xsmall} and (max-width: 52.50em) {
+    flex: 2;
   }
 }
 
 .badge {
   position: relative;
+  background-color: $beige;
   right: 3px;
 
   @media #{$mq-max-small} { left: .5em; }
@@ -67,7 +79,7 @@
 }
 
 .dropdown-navbar-wrapper {
-  flex: .27;
+  flex: .5;
     a {
       color: $primary-color;
       font-weight: bold;
@@ -75,11 +87,11 @@
   @media #{$mq-max-small} {
     display: none;
   }
-  @media #{$mq-xsmall} {
-    flex: 1;
-    padding: .5em 0 ;
-      h3 { font-size: 1.25em; }
-  }
+  // @media #{$mq-xsmall} {
+  //   flex: 1;
+  //   padding: .5em 0 ;
+  //     h3 { font-size: 1.25em; }
+  // }
 }
 
 .login-btn { flex: .08; }
@@ -103,7 +115,7 @@
   color: #f03f35 !important;
   cursor: pointer;
 }
-.logout-btn:hover { color: red !important; }
+.logout-btn:hover { color: red; }
 .menu-overlay { display: none; }
 
 @media #{$mq-max-small} {
@@ -123,7 +135,7 @@
     height: 0;
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     top: 0;
     left: 0;
     background-color: $primary-color;
@@ -144,7 +156,9 @@
       color: $sky-blue;
       text-decoration: none;
     }
+
     a:hover { color: $gray; }
+
     hr {
       background-color: $sky-blue;
 
