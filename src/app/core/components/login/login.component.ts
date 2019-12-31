@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,16 +15,23 @@ export class LoginComponent  {
 
   constructor(
     private router: Router,
-    private authService: AuthService) {
-
-      this.createForm();
-    }
+    private authService: AuthService
+  )
+    { this.createForm(); }
 
   private createForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     })
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 
   loginGoogle() {
@@ -35,7 +42,11 @@ export class LoginComponent  {
     this.authService.loginUser(user)
     .then(res => {
       this.successMsg = "You have successfully logged!"
-      this.router.navigate(['/']);
+
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 3000);
+
     }, err => {
       console.log(err);
       this.errorMsg = err.message;

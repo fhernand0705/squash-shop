@@ -2,8 +2,8 @@
 
 .login-wrapper {
   display: flex;
-  margin: 3.5em;
   flex-direction: column;
+  margin: 3.5em;
   align-items: center;
   text-align: center;
 
@@ -15,9 +15,18 @@
       text-decoration: none;
       color: $sky-blue;
     }
-    form { width: 30%; }
+    form, .login-google-btn {
+      width: 30%;
+
+      @media #{$mq-xxsmall} { width: 100%; }
+      @media (min-width: 540px) { width: 75%; }
+      @media #{$mq-xsmall} { width: 65%; }
+      @media (min-width: 740px) { width: 55%; }
+      @media #{$mq-small} { width: 45%; }
+      @media (min-width: 1000px) { width: 35%; }
+      @media #{$mq-medium} { width: 30%; }
+    }
     .login-btn { width: 100% }
-    .login-google-btn { width: 30%; }
     .login-btn, .login-google-btn { transition: all .3s ease-in-out; }
     .login-btn:hover, .login-google-btn:hover {
       box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);

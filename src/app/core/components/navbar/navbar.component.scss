@@ -29,9 +29,6 @@
   }
 }
 
-
-
-
 .app-logo {
   flex: .5;
 
@@ -53,9 +50,17 @@
   @media #{$mq-max-small} { display: none; }
 }
 
+.badge {
+  position: relative;
+  background-color: $beige;
+  right: 3px;
+
+  @media #{$mq-max-small} { left: .5em; }
+}
+
 .squash-navbar-header {
   display: block;
-  flex: 3;
+  flex: 3.5;
   color: $primary-color;
   text-shadow: 2px 2px $sky-blue;
 
@@ -64,14 +69,6 @@
   @media #{$mq-xsmall} and (max-width: 52.50em) {
     flex: 2;
   }
-}
-
-.badge {
-  position: relative;
-  background-color: $beige;
-  right: 3px;
-
-  @media #{$mq-max-small} { left: .5em; }
 }
 
 .dropdown-btn {
@@ -84,17 +81,14 @@
       color: $primary-color;
       font-weight: bold;
     }
-  @media #{$mq-max-small} {
-    display: none;
-  }
-  // @media #{$mq-xsmall} {
-  //   flex: 1;
-  //   padding: .5em 0 ;
-  //     h3 { font-size: 1.25em; }
-  // }
+  @media #{$mq-max-small} { display: none; }
 }
 
-.login-btn { flex: .08; }
+.login-btn {
+  flex: 0;
+
+  @media #{$mq-max-small} { display: none; }
+}
 
 .dropdown-content {
   border-radius: .5em;

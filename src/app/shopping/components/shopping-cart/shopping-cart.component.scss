@@ -3,9 +3,10 @@
 .shopping-cart-wrapper {
   display: grid;
   justify-content: center;
-  margin: 6em 0;
+  margin: 10em 0;
     .fas {
-      font-size: 10em;
+      font-size: 8em;
+      text-align: center;
       cursor: pointer;
       color: $primary-color;
       transition: all .4s ease-in-out;
@@ -14,7 +15,6 @@
     .fas:hover { color: $sky-blue; }
 
     p {
-      text-align: center;
       font-size: 2em;
       margin: .5em 0;
       color: darkgrey;
