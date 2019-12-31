@@ -1,9 +1,9 @@
 <div class="login-wrapper">
   <form [formGroup]="loginForm">
      <div class="form-group">
+       <div *ngIf="success" class="alert alert-success success">{{successMsg}}</div>
        <label></label>
        <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
-       <div *ngIf="success" class="alert alert-success success">{{successMsg}}</div>
        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
          Email is required.
        </div>

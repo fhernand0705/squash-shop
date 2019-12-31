@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit {
     let sidebar = document.getElementById('overlay');
 
     sidebar.style.height = "0";
-    location.reload;
   }
 
   openSidebar() {

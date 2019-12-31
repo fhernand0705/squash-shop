@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  align-items: center;
+
+    .btn { width: 100%; }
+    form {
+      width: 30%;
+
+      @media #{$mq-xxsmall} { width: 100%; }
+      @media (min-width: 540px) { width: 75%; }
+      @media #{$mq-xsmall} { width: 65%; }
+      @media (min-width: 740px) { width: 55%; }
+      @media #{$mq-small} { width: 45%; }
+      @media (min-width: 1000px) { width: 35%; }
+      @media #{$mq-medium} { width: 30%; }
+    }
+}

@@ -8,14 +8,14 @@
 
   <div class="card" *ngFor="let o of orders">
     <h6 class="card-text date">{{ o.datePlaced | date: 'medium'}}</h6>
-    <div class="card-header"><h4>Customer Details</h4></div>
+    <div class="card-header"><h6>Customer Details</h6></div>
     <div class="card-body">
       <p class="card-text"><b>Shipping Name</b>: {{ o.shipping.name | titlecase }}</p>
       <p class="card-text"><b>Address 1</b>: {{ o.shipping.address1 | titlecase }}</p>
       <p class="card-text"><b>City</b>: {{ o.shipping.city | uppercase }}</p>
     </div>
 
-    <div class="card-header"><h4>Order Details</h4></div>
+    <div class="card-header"><h6>Order Details</h6></div>
     <div class="card-body">
       <p class="card-text"><b>Product Brand</b>: {{ o.items[0].product.brand }}</p>
       <p class="card-text"><b>Item Name</b>: {{ o.items[0].product.title }}</p>
