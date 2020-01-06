@@ -1,4 +1,4 @@
-<div *ngIf="adminOrders$ | async as orders">
+<div>
   <div class="back-btn-wrapper">
     <a routerLink="/my-orders">
       <i class="fas fa-chevron-left"></i>
@@ -6,22 +6,22 @@
     </a>
   </div>
 
-  <div class="card" *ngFor="let o of orders">
-    <h6 class="card-text date">{{ o.datePlaced | date: 'medium'}}</h6>
+  <div class="card" *ngIf="userOrders">
+    <h6 class="card-text date">{{ userOrders.datePlaced | date: 'medium'}}</h6>
     <div class="card-header"><h6>Customer Details</h6></div>
     <div class="card-body">
-      <p class="card-text"><b>Shipping Name</b>: {{ o.shipping.name | titlecase }}</p>
-      <p class="card-text"><b>Address 1</b>: {{ o.shipping.address1 | titlecase }}</p>
-      <p class="card-text"><b>City</b>: {{ o.shipping.city | uppercase }}</p>
+      <p class="card-text"><b>Shipping Name</b>: {{ userOrders.shipping.name | titlecase }}</p>
+      <p class="card-text"><b>Address 1</b>: {{ userOrders.shipping.address1 | titlecase }}</p>
+      <p class="card-text"><b>City</b>: {{ userOrders.shipping.city | uppercase }}</p>
     </div>
 
     <div class="card-header"><h6>Order Details</h6></div>
     <div class="card-body">
-      <p class="card-text"><b>Product Brand</b>: {{ o.items[0].product.brand }}</p>
-      <p class="card-text"><b>Item Name</b>: {{ o.items[0].product.title }}</p>
-      <p class="card-text"><b>Quantity</b>: {{ o.items[0].quantity }}</p>
-      <p class="card-text"><b>Total Price</b>: {{ o.items[0].totalPrice | currency:'USD':symbol }}</p>
-      <div class="card-text"><img class="card-text" [src]="o.items[0].product.imageUrl" alt=""></div>
+      <p class="card-text"><b>Product Brand</b>: {{ userOrders.items[0].product.brand }}</p>
+      <p class="card-text"><b>Item Name</b>: {{ userOrders.items[0].product.title }}</p>
+      <p class="card-text"><b>Quantity</b>: {{ userOrders.items[0].quantity }}</p>
+      <p class="card-text"><b>Total Price</b>: {{ userOrders.items[0].totalPrice | currency:'USD':symbol }}</p>
+      <div class="card-text"><img class="card-text" [src]="userOrders.items[0].product.imageUrl" alt="{{userOrders.items[0].product.title}}"></div>
     </div>
  </div>
 </div>

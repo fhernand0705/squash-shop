@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, first } from 'rxjs/operators';
-import { AuthService } from '../../services/auth.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-order-details',
@@ -10,24 +10,23 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./order-details.component.scss']
 })
 export class OrderDetailsComponent {
-  adminOrders$;
+  userOrders = {};
   id: string;
+  adminUrl: string;
 
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthService,
+    private location: Location,
     private orderService: OrderService) {
 
-    // let id = this.route.snapshot.paramMap.get('id');
-    // if (id) this.orderService.getOrderId(id)
-    // .pipe(first())
-    // .subscribe(
-    //   adminOrders => this.adminOrders$ = adminOrders
-    // );
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) this.orderService.getOrderId(this.id)
+      .valueChanges()
+      .pipe(first())
+      .subscribe(orders => this.userOrders = orders);
 
-    this.adminOrders$ = this.authService.user$
-      .pipe(switchMap(u => orderService.getOrdersByUser(u.uid))
-    );
+    this.adminUrl = this.location.path();
   }
+
 
 }

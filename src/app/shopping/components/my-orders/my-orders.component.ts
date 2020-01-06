@@ -15,8 +15,10 @@ export class MyOrdersComponent {
     private authService: AuthService,
     private orderService: OrderService
   ) {
-    this.orders$ = this.authService.user$
-      .pipe(switchMap(u => orderService.getOrdersByUser(u.uid))
-    ); 
+    // this.orders$ = this.authService.user$
+    //   .pipe(switchMap(u => orderService.getOrdersByUser(u.uid))
+    // );
+
+    this.orders$ = this.orderService.getOrders();
   }
 }
