@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -15,7 +14,6 @@ export class OrderDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
     private orderService: OrderService) {
 
     this.id = this.route.snapshot.paramMap.get('id');

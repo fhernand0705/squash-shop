@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent  {
   loginForm: FormGroup;
   successMsg: string;
-  errorMsg: any;
+  errorMsg: string;
 
   constructor(
     private router: Router,

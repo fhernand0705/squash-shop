@@ -29,7 +29,7 @@
             <product-quantity [product]="cartItem" [shopping-cart]="cart"></product-quantity>
           </td>
           <td class="text-right">
-            {{ cartItem.totalPrice | currency:"USD":symbol }}
+            {{ cartItem.totalPrice | currency:"USD":"symbol" }}
           </td>
         </tr>
       </tbody>
@@ -39,7 +39,7 @@
           <th></th>
           <th></th>
           <th class="text-right">
-            {{ cart.totalPrice | currency:"USD":symbol }}
+            {{ cart.totalPrice | currency:"USD":"symbol" }}
           </th>
         </tr>
         <tr>

@@ -27,7 +27,7 @@
       <label for="brand">Quantity</label>
       <p class="card-text">{{ i.quantity }}</p>
       <label for="brand">Total Price</label>
-      <p class="card-text">{{ i.totalPrice | currency:'USD':symbol }}</p>
+      <p class="card-text">{{ i.totalPrice | currency:'USD':'symbol' }}</p>
       <div class="card-text"><img class="card-text" [src]="i.product.imageUrl" alt="{{i.product.title}}"></div>
       <hr>
     </div>
