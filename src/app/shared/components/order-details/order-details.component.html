@@ -6,22 +6,30 @@
     </a>
   </div>
 
-  <div class="card" *ngIf="userOrders">
-    <h6 class="card-text date">{{ userOrders.datePlaced | date: 'medium'}}</h6>
-    <div class="card-header"><h6>Customer Details</h6></div>
+  <div class="card" *ngIf="orderDetails">
+    <h6 class="card-text date">{{ orderDetails.datePlaced | date: 'medium'}}</h6>
+    <div class="card-header"><h5>Shipping Details</h5></div>
     <div class="card-body">
-      <p class="card-text"><b>Shipping Name</b>: {{ userOrders.shipping.name | titlecase }}</p>
-      <p class="card-text"><b>Address 1</b>: {{ userOrders.shipping.address1 | titlecase }}</p>
-      <p class="card-text"><b>City</b>: {{ userOrders.shipping.city | uppercase }}</p>
+      <label for="name">Shipping Name</label>
+      <p class="card-text">{{ orderDetails.shipping.name | titlecase }}</p>
+      <label for="address1">Address 1</label>
+      <p class="card-text">{{ orderDetails.shipping.address1 | titlecase }}</p>
+      <label for="city">City</label>
+      <p class="card-text">{{ orderDetails.shipping.city | uppercase }}</p>
     </div>
 
-    <div class="card-header"><h6>Order Details</h6></div>
-    <div class="card-body">
-      <p class="card-text"><b>Product Brand</b>: {{ userOrders.items[0].product.brand }}</p>
-      <p class="card-text"><b>Item Name</b>: {{ userOrders.items[0].product.title }}</p>
-      <p class="card-text"><b>Quantity</b>: {{ userOrders.items[0].quantity }}</p>
-      <p class="card-text"><b>Total Price</b>: {{ userOrders.items[0].totalPrice | currency:'USD':symbol }}</p>
-      <div class="card-text"><img class="card-text" [src]="userOrders.items[0].product.imageUrl" alt="{{userOrders.items[0].product.title}}"></div>
+    <div class="card-header"><h5>Product Details</h5></div>
+    <div class="card-body" *ngFor="let i of orderDetails.items">
+      <label for="brand">Brand</label>
+      <p class="card-text">{{ i.product.brand }}</p>
+      <label for="brand">Item Name</label>
+      <p class="card-text">{{ i.product.title }}</p>
+      <label for="brand">Quantity</label>
+      <p class="card-text">{{ i.quantity }}</p>
+      <label for="brand">Total Price</label>
+      <p class="card-text">{{ i.totalPrice | currency:'USD':symbol }}</p>
+      <div class="card-text"><img class="card-text" [src]="i.product.imageUrl" alt="{{i.product.title}}"></div>
+      <hr>
     </div>
  </div>
 </div>

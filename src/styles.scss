@@ -39,10 +39,12 @@ body {
  font-weight: 500 !important;
 }
 
-h1, h2, h3, h4, h5, h6, th {
+h1, h2, h3, h4, h5, h6, th, label {
  font-family: 'Montserrat', sans-serif;
  font-weight: 500;
 }
+
+label { font-weight: 300; }
 
 .main-wrapper {
   margin: 8em 0;

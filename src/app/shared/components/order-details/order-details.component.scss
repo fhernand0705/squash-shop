@@ -1,9 +1,12 @@
 @import 'src/styles.scss';
 
 .date {
-  color: $sky-blue;
+  color: $beige;
+  text-shadow: 2px 2px $primary-color;
   margin: .5em;
 }
+
+.card-header { color: $sky-blue; }
 
 .card-text {
   img {

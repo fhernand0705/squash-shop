@@ -10,9 +10,8 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./order-details.component.scss']
 })
 export class OrderDetailsComponent {
-  userOrders = {};
+  orderDetails;
   id: string;
-  adminUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,10 +22,9 @@ export class OrderDetailsComponent {
     if (this.id) this.orderService.getOrderId(this.id)
       .valueChanges()
       .pipe(first())
-      .subscribe(orders => this.userOrders = orders);
-
-    this.adminUrl = this.location.path();
+      .subscribe(orders => {
+        if (orders) this.orderDetails = orders;
+      });
   }
-
 
 }
