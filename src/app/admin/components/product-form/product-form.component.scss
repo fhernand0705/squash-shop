@@ -3,10 +3,20 @@
 .product-form-container {
   display: flex;
   margin: 2em;
+
+  @media #{$mq-xxsmall} { flex-direction: column; }
+  @media #{$mq-xsmall} { flex-direction: row; }
 }
 
 .product-form-item { flex: 5; }
-.col { flex: 1.5; }
+
+.col {
+  flex: 1.5;
+
+  @media #{$mq-xxsmall} { margin: 1.5em; }
+  @media #{$mq-max-small} { flex: 0; }
+}
+
 .card-wrapper { flex: 4; }
 .delete-btn { color: red; }
 

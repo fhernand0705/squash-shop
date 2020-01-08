@@ -1,0 +1,78 @@
+[debug] [2020-01-08T02:48:17.481Z] ----------------------------------------------------------------------
+[debug] [2020-01-08T02:48:17.483Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-01-08T02:48:17.483Z] CLI Version:   7.7.0
+[debug] [2020-01-08T02:48:17.484Z] Platform:      darwin
+[debug] [2020-01-08T02:48:17.484Z] Node Version:  v10.16.2
+[debug] [2020-01-08T02:48:17.484Z] Time:          Tue Jan 07 2020 21:48:17 GMT-0500 (Eastern Standard Time)
+[debug] [2020-01-08T02:48:17.485Z] ----------------------------------------------------------------------
+[debug] [2020-01-08T02:48:17.485Z]
+[debug] [2020-01-08T02:48:17.500Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-08T02:48:17.501Z] > authorizing via signed-in user
+[debug] [2020-01-08T02:48:17.501Z] [iam] checking project squash-shop for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-01-08T02:48:17.504Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-08T02:48:17.504Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token
+ <request body omitted>
+[debug] [2020-01-08T02:48:17.813Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-08T02:48:17.856Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/squash-shop:testIamPermissions
+
+[debug] [2020-01-08T02:48:18.202Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-08T02:48:18.205Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/squash-shop
+
+[debug] [2020-01-08T02:48:18.582Z] <<< HTTP RESPONSE 200
+[info]
+[info] === Deploying to 'squash-shop'...
+[info]
+[info] i  deploying hosting
+[debug] [2020-01-08T02:48:18.587Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/squash-shop/versions
+
+[debug] [2020-01-08T02:48:19.761Z] <<< HTTP RESPONSE 200
+[info] i  hosting[squash-shop]: beginning deploy...
+[info] i  hosting[squash-shop]: found 15 files in dist/squash-shop
+[debug] [2020-01-08T02:48:20.053Z] [hosting] hash cache [ZGlzdC9zcXVhc2gtc2hvcA] stored for 15 files
+[debug] [2020-01-08T02:48:20.053Z] [hosting][hash queue][FINAL]
+[debug] [2020-01-08T02:48:20.053Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/squash-shop/versions/e98d689c926d7db3:populateFiles
+ <request body omitted>
+[debug] [2020-01-08T02:48:21.195Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-08T02:48:21.201Z] [hosting][populate queue][FINAL]
+[debug] [2020-01-08T02:48:21.201Z] [hosting] uploads queued: 4
+[debug] [2020-01-08T02:48:23.860Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[squash-shop]: file upload complete
+[debug] [2020-01-08T02:48:23.862Z] [hosting] deploy completed after 4100ms
+[debug] [2020-01-08T02:48:24.063Z] [
+  {
+    "config": {
+      "public": "dist/squash-shop",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "squash-shop"
+    },
+    "site": "squash-shop",
+    "version": "sites/squash-shop/versions/e98d689c926d7db3"
+  }
+]
+[info] i  hosting[squash-shop]: finalizing version...
+[debug] [2020-01-08T02:48:24.064Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/squash-shop/versions/e98d689c926d7db3?updateMask=status
+
+[debug] [2020-01-08T02:48:24.574Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-08T02:48:24.574Z] [hosting] finalized version for squash-shop:
+[info] ✔  hosting[squash-shop]: version finalized
+[info] i  hosting[squash-shop]: releasing new version...
+[debug] [2020-01-08T02:48:24.575Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/squash-shop/releases?version_name=sites/squash-shop/versions/e98d689c926d7db3
+
+[debug] [2020-01-08T02:48:25.086Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-08T02:48:25.087Z] [hosting] release:
+[info] ✔  hosting[squash-shop]: release complete
+[info]
+[info] ✔  Deploy complete!
+[info]
+[info] Project Console: https://console.firebase.google.com/project/squash-shop/overview
+[info] Hosting URL: https://squash-shop.firebaseapp.com
