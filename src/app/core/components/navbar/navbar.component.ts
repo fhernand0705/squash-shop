@@ -4,6 +4,7 @@ import { AppUser } from 'src/app/shared/models/app-user';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -15,6 +16,7 @@ export class NavbarComponent implements OnInit {
   cart$: Observable<ShoppingCart>;
 
   constructor(
+    private route: Router,
     private authService: AuthService,
     private cartService: ShoppingCartService
   ) {}
@@ -24,7 +26,11 @@ export class NavbarComponent implements OnInit {
     this.cart$ = await this.cartService.getCart();
   }
 
-  logout() { this.authService.logout(); }
+  logout() {
+    this.authService.logout();
+
+    this.route.navigate(['/']);
+  }
 
   reload() {
     let sidebar = document.getElementById('overlay');

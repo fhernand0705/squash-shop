@@ -45,16 +45,16 @@ export class AuthService {
 
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(
-        String(value.email), String(value.password)
-      ).then(user => {
-        resolve(firebase.auth().onAuthStateChanged(user => {
-          if (user)
-            user.updateProfile({
-              displayName: value.name
-            })
-        }))
-        }, err => reject(err))
-    })
+        String(value.email), String(value.password))
+          .then(user => {
+          resolve(firebase.auth().onAuthStateChanged(user => {
+            if (user)
+              user.updateProfile({
+                displayName: value.name
+              })
+          }))
+          }, err => reject(err))
+        })
   }
 
   loginUser(user: AppUser) {
