@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: 10em 10em;
   grid-row-gap: 5em;
-  margin: 5em;
+  margin: 8em 0;
   justify-content: space-evenly;
 
   @media (max-width: 1000px) { grid-template-columns: unset; }
