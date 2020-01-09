@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { OrderService } from 'src/app/shared/services/order.service';
-import { switchMap } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-order-success',
@@ -9,14 +9,19 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./order-success.component.scss']
 })
 export class OrderSuccessComponent {
-  orders$;
+  orders;
+  id: string;
 
   constructor(
-    private authService: AuthService,
+    private route: ActivatedRoute,
     private orderService: OrderService
   ) {
-    this.orders$ = this.authService.user$
-      .pipe(switchMap(u => orderService.getOrdersByUser(u.uid)));
-      
+      this.id = this.route.snapshot.paramMap.get('id');
+      if (this.id) this.orderService.getOrderId(this.id)
+        .valueChanges()
+        .pipe(first())
+        .subscribe(orders => {
+          if (orders) this.orders = orders;
+        });
   }
 }

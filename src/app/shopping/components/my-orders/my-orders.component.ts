@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { OrderService } from 'src/app/shared/services/order.service';
-import { switchMap } from 'rxjs/operators';
+import { AppUser } from 'src/app/shared/models/app-user';
 
 @Component({
   selector: 'app-my-orders',
@@ -10,15 +10,13 @@ import { switchMap } from 'rxjs/operators';
 })
 export class MyOrdersComponent {
   orders$;
+  appUser: AppUser;
 
   constructor(
     private authService: AuthService,
     private orderService: OrderService
   ) {
-    // this.orders$ = this.authService.user$
-    //   .pipe(switchMap(u => orderService.getOrdersByUser(u.uid))
-    // );
-
+    this.authService.appUser$.subscribe(appUser => this.appUser = appUser);
     this.orders$ = this.orderService.getOrders();
-  }
+   }
 }

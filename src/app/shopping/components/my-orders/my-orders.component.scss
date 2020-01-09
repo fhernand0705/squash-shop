@@ -1,3 +1,8 @@
+@import "src/styles.scss";
+
+.user-orders-wrapper { margin: 8em 0; }
+.username { color: $sky-blue; }
+
 .no-orders-msg {
   text-align: center;
   margin: 6em 0;
