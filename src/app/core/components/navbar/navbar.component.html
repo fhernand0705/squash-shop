@@ -58,6 +58,7 @@
         *ngIf="appUser; else anonymousUser">
         <h5>{{ appUser.name | titlecase }}</h5>
        </div>
+      <div><a routerLink="/login" (click)="reload()">Login</a></div>
       <div class="cart-logo">
         <a routerLink="/shopping-cart" (click)="reload()">
           <span>My Cart</span>
